@@ -27,3 +27,6 @@ dist/
 .idea/
 .DS_Store
 Thumbs.db
+
+# ---- 工程内部状态（记忆、会话数据），不进仓库 ----
+.workbuddy/
