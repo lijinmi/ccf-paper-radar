@@ -1,0 +1,236 @@
+# CCF-A 论文站 · 会议名单（venues.yaml）
+#
+# 定位：为计算机视觉研究者提供灵感的论文雷达
+#       —— CV 三大为主干，机器学习三大为"方法外溢"来源
+#
+# 字段说明
+#   key                  内部主键，小写，用于目录名 / URL / 文件名前缀
+#   schedule             举办节奏：annual / biennial_odd（奇数年）/ biennial_even（偶数年）
+#   ccf_rank             CCF 2022 版目录等级：A / B / C / none（未收录）
+#   community_tier       社区实际地位：T1 = 领域公认顶会
+#   acceptance_2025      2025 届主会录用篇数（official = 官方，estimate = 估算）
+#   cv_ratio             该会中与 CV 相关的论文占比（估算），用于预估实际收录量
+#   openalex_id / _cov   OpenAlex source ID 与覆盖率（2026-11-11 实测）
+#   archive / reach_cn   官方档案站与大陆直连可达性（ok / slow / blocked）
+
+meta:
+  version: 0.3
+  updated: 2026-11-11
+  year_scope: 2026            # 只做当年最新，不做历史回溯（见 04_2026最新论文获取.md）
+  scope: CV-oriented            # v0.1 的 NLP 会议已移出
+  ccf_catalog: CCF 推荐国际学术会议和期刊目录（2022 版）
+  purpose: 为 CV 研究提供跨领域灵感，不做纯 NLP 覆盖
+
+# ---------------------------------------------------------------
+# V1 收录：6 个会议
+# ---------------------------------------------------------------
+venues:
+
+  # ============ 计算机视觉三大 ============
+  - key: cvpr
+    abbr: CVPR
+    name_en: IEEE/CVF Conference on Computer Vision and Pattern Recognition
+    name_zh: 国际计算机视觉与模式识别会议
+    schedule: annual
+    field: CV
+    role: 主干                     # 主干 / 方法外溢
+    ccf_rank: A
+    community_tier: T1
+    acceptance_2025: 2878
+    acceptance_src: official
+    acceptance_2026: 4090          # CVPR 2026：投稿 16,092，录用 4,090，录用率 25.42%
+    submissions_2026: 16092
+    meet_2026: 2026-06-03/07 丹佛
+    status_2026: published         # 已开会 + 已上 CVF 开放获取
+    cv_ratio: 1.0
+    archive: https://openaccess.thecvf.com/
+    archive_type: cvf
+    openalex_id: S4210176548
+    openalex_works: 25295
+    openalex_cov: good
+    reach_cn: slow                 # 200 但约 20~25s
+    note: 全年最重要的一次"全领域快照"；CVF Open Access 有完整 HTML 摘要
+
+  - key: iccv
+    abbr: ICCV
+    name_en: IEEE/CVF International Conference on Computer Vision
+    name_zh: 国际计算机视觉大会
+    schedule: biennial_odd        # 奇数年
+    field: CV
+    role: 主干
+    ccf_rank: A
+    community_tier: T1
+    acceptance_2025: 2700
+    acceptance_src: estimate
+    cv_ratio: 1.0
+    archive: https://openaccess.thecvf.com/
+    archive_type: cvf
+    openalex_id: S4363607764
+    openalex_works: 11849
+    openalex_cov: good
+    reach_cn: slow
+    note: 奇数年才有；偶数年这一栏由 ECCV 顶上
+
+  - key: eccv
+    abbr: ECCV
+    name_en: European Conference on Computer Vision
+    name_zh: 欧洲计算机视觉会议
+    schedule: biennial_even       # 偶数年
+    field: CV
+    role: 主干
+    ccf_rank: B                   # ⚠️ CCF-B，但 CORE A*、CV 三大之一
+    community_tier: T1
+    acceptance_2025: 0            # 2025 无 ECCV
+    acceptance_ref_year: 2024
+    acceptance_ref: 2395
+    acceptance_src: estimate
+    meet_2026: 2026-09-08/12 马尔默（瑞典）
+    status_2026: published         # 论文在 ECVA
+    cv_ratio: 1.0
+    archive: https://www.ecva.net/
+    archive_type: ecva
+    openalex_id: S4306418318
+    openalex_works: 15
+    openalex_cov: broken          # 论文在 Springer LNCS 下，OpenAlex 几乎没索引
+    reach_cn: blocked
+    note: 偶数年才有；ECVA 站直连不通，OpenAlex 覆盖也废，最难抓的一个
+
+  # ============ 机器学习三大（方法外溢来源）============
+  - key: neurips
+    abbr: NeurIPS
+    name_en: Conference on Neural Information Processing Systems
+    name_zh: 神经信息处理系统大会
+    schedule: annual
+    field: ML
+    role: 方法外溢
+    ccf_rank: A
+    community_tier: T1
+    acceptance_2025: 5290
+    acceptance_src: official
+    meet_2026: 2026-12 悉尼
+    status_2026: accepted_only     # ⚠️ 录用已放榜，会议未召开，论文集未出版 → 当前最"新"的一块
+    cv_ratio: 0.30                # 估算：视觉/多模态/生成相关约三成
+    relevant_2025: 1587
+    archive: https://proceedings.neurips.cc/
+    archive_type: neurips
+    openalex_id: S4363606243
+    openalex_works: 19262
+    openalex_cov: good
+    reach_cn: blocked             # 超时 60s+
+    note: 体量最大（5290），但含大量理论/RL/优化论文，必须过 CV 相关性筛选
+
+  - key: iclr
+    abbr: ICLR
+    name_en: International Conference on Learning Representations
+    name_zh: 国际学习表征会议
+    schedule: annual
+    field: ML
+    role: 方法外溢
+    ccf_rank: none                # ⚠️ CCF 目录未收录
+    community_tier: T1
+    acceptance_2025: 3700
+    acceptance_src: estimate
+    acceptance_2026: 5359
+    meet_2026: 2026-04-23/27 里约热内卢
+    status_2026: published         # 已开会，论文在 OpenReview
+    cv_ratio: 0.32
+    relevant_2025: 1184
+    archive: https://openreview.net/
+    archive_type: openreview
+    openalex_id: S4306419637
+    openalex_works: 602
+    openalex_cov: broken
+    reach_cn: blocked             # API 返回 403 ChallengeRequiredError
+    note: 表征学习是 CV 方法的主要来源之一；但 OpenReview 有 Cloudflare 挑战
+
+  - key: icml
+    abbr: ICML
+    name_en: International Conference on Machine Learning
+    name_zh: 国际机器学习大会
+    schedule: annual
+    field: ML
+    role: 方法外溢
+    ccf_rank: A
+    community_tier: T1
+    acceptance_2025: 3260
+    acceptance_src: official
+    meet_2026: 2026-07-06/11 首尔
+    status_2026: published
+    cv_ratio: 0.22                # 估算：ICML 偏理论，CV 占比低于 NeurIPS/ICLR
+    relevant_2025: 717
+    archive: https://proceedings.mlr.press/
+    archive_type: pmlr
+    openalex_id: S4306419644
+    openalex_works: 2041
+    openalex_cov: broken
+    reach_cn: slow
+    note: OpenAlex 只索引 2041 篇（应 1 万+），论文在 PMLR 丛书下；需维护年份→卷号映射
+
+# ---------------------------------------------------------------
+# v0.1 收录过、v0.2 移出的会议（保留记录，以后想扩再拿回来）
+# ---------------------------------------------------------------
+dropped:
+  - key: acl
+    abbr: ACL
+    ccf_rank: A
+    reason: 用户明确不做 NLP 专精；ACL 论文对 CV 的启发有限
+  - key: emnlp
+    abbr: EMNLP
+    ccf_rank: B
+    reason: 同上
+  - key: naacl
+    abbr: NAACL
+    ccf_rank: B
+    reason: 同上
+  - key: aaai
+    abbr: AAAI
+    ccf_rank: A
+    reason: 录用量大但方向分散，CV 部分与 CVPR 高度重合；第二批再考虑
+  - key: ijcai
+    abbr: IJCAI
+    ccf_rank: A
+    reason: 同上
+
+# ---------------------------------------------------------------
+# 抓取源的现实约束（2026-11-11 中国大陆直连实测，含重试）
+# ---------------------------------------------------------------
+archive_reality:
+  cvf:
+    url: https://openaccess.thecvf.com/
+    reach: slow
+    detail: HTTP 200，但首字节 20~25s，需 60s 超时
+    has_abstract: true
+    fetch_mode: html
+  ecva:
+    url: https://www.ecva.net/
+    reach: blocked
+    detail: 连接超时（16~60s），无响应
+    has_abstract: true
+    fetch_mode: html
+  neurips:
+    url: https://proceedings.neurips.cc/
+    reach: blocked
+    detail: 超时 60s+；备选 papers.nips.cc 同样不通
+    has_abstract: true
+    fetch_mode: html
+  pmlr:
+    url: https://proceedings.mlr.press/
+    reach: slow
+    detail: 200，约 20s；按卷期组织，需年份→卷号映射表
+    has_abstract: true
+    fetch_mode: html
+  openreview:
+    url: https://api2.openreview.net/
+    reach: blocked
+    detail: 403 ChallengeRequiredError（Cloudflare 人机验证），非网络问题
+    has_abstract: true
+    fetch_mode: playwright    # 需无头浏览器过挑战，或换海外 IP
+
+# ---------------------------------------------------------------
+# 去重与合并规则（同一篇论文会同时出现在多个源）
+# ---------------------------------------------------------------
+merge_policy:
+  primary_keys: [doi, arxiv_id]
+  title_fingerprint: lowercase + 去标点 + 去空白 + 取 sha1
+  prefer_record: 正式会议版（venue 用它），保留 arxiv_id 与预印本链接
+  year_source: 正式发表年

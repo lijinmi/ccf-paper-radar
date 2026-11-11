@@ -1,0 +1,29 @@
+# ---- Python ----
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# ---- 环境变量与密钥（绝对不要提交）----
+.env
+.env.*
+!.env.example
+
+# ---- 数据（体积大，可重新抓取）----
+data/raw/
+data/cache/
+*.sqlite
+*.db
+
+# ---- 前端 / 构建产物 ----
+node_modules/
+dist/
+.astro/
+
+# ---- 编辑器与系统 ----
+.idea/
+.DS_Store
+Thumbs.db

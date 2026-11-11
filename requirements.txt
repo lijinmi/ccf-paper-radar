@@ -1,0 +1,15 @@
+# 数据管道基础依赖（2026-11-10）
+# 安装：.\.venv\Scripts\pip.exe install -r requirements.txt
+
+requests==2.34.2
+python-dotenv==1.2.4
+rich==15.0.0
+
+# 后续按需放开：
+# pyyaml==6.0.2          # venues.yaml / taxonomy.yaml 读写
+# pydantic==2.12.0       # 数据模型校验
+# tenacity==9.0.0        # 抓取失败重试
+# jinja2==3.1.4          # 摘要模板渲染
+# pyyaml                 # 同上
+# openai==1.60.0         # 调 LLM（OpenAI 兼容接口，DeepSeek 通用）
+# tqdm==4.67.0           # 进度条

@@ -1,0 +1,213 @@
+{
+  "CVPR": [
+    {
+      "id": "S4210176548",
+      "name": "IEEE Computer Society Conference on Computer Vision and Pattern Recognition/Proceedings - IEEE Computer Society Conference on Computer Vision and Pattern Recognition/Proceedings",
+      "type": "conference",
+      "works": 25295,
+      "issn": "1063-6919"
+    },
+    {
+      "id": "S4363607748",
+      "name": "IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)",
+      "type": "conference",
+      "works": 6064,
+      "issn": null
+    },
+    {
+      "id": "S4363608118",
+      "name": "2009 IEEE Computer Society Conference on Computer Vision and Pattern Recognition Workshops",
+      "type": "conference",
+      "works": 974,
+      "issn": "2160-7508"
+    }
+  ],
+  "ICCV": [
+    {
+      "id": "S4363607764",
+      "name": "IEEE/CVF International Conference on Computer Vision (ICCV)",
+      "type": "conference",
+      "works": 11849,
+      "issn": null
+    },
+    {
+      "id": "S4393918695",
+      "name": "IEEE International Conference on Computer Vision Workshops",
+      "type": "conference",
+      "works": 3643,
+      "issn": "2473-9936"
+    },
+    {
+      "id": "S4306419275",
+      "name": "International Conference on Computer Vision Theory and Applications",
+      "type": "conference",
+      "works": 2123,
+      "issn": null
+    }
+  ],
+  "ECCV": [
+    {
+      "id": "S4306418318",
+      "name": "European Conference on Computer Vision",
+      "type": "conference",
+      "works": 15,
+      "issn": null
+    }
+  ],
+  "NeurIPS": [
+    {
+      "id": "S4363606243",
+      "name": "neural information processing systems",
+      "type": "conference",
+      "works": 19262,
+      "issn": "1049-5258"
+    },
+    {
+      "id": "S7407089294",
+      "name": "LatinX in AI at Neural Information Processing Systems Conference (LXAI)",
+      "type": "conference",
+      "works": 123,
+      "issn": null
+    }
+  ],
+  "ICML": [
+    {
+      "id": "S4306419644",
+      "name": "International Conference on Machine Learning",
+      "type": "conference",
+      "works": 2041,
+      "issn": null
+    },
+    {
+      "id": "S4306419645",
+      "name": "International Conference on Machine Learning and Applications",
+      "type": "conference",
+      "works": 4663,
+      "issn": null
+    },
+    {
+      "id": "S4306419646",
+      "name": "International Conference on Machine Learning and Cybernetics",
+      "type": "conference",
+      "works": 9503,
+      "issn": null
+    }
+  ],
+  "ICLR": [
+    {
+      "id": "S4306419637",
+      "name": "International Conference on Learning Representations",
+      "type": "conference",
+      "works": 602,
+      "issn": null
+    }
+  ],
+  "ACL": [
+    {
+      "id": "S4393915740",
+      "name": "Proceedings of the conference - Association for Computational Linguistics. Meeting",
+      "type": "conference",
+      "works": 12136,
+      "issn": "0736-587X"
+    },
+    {
+      "id": "S7407086083",
+      "name": "Annual Meeting of the Association for Computational Linguistics: System Demonstrations (ACL Demo)",
+      "type": "conference",
+      "works": 267,
+      "issn": null
+    },
+    {
+      "id": "S7407088936",
+      "name": "Annual Meeting of the Association for Computational Linguistics: Student Research Workshop (ACL SRW)",
+      "type": "conference",
+      "works": 248,
+      "issn": null
+    }
+  ],
+  "EMNLP": [
+    {
+      "id": "S4363608991",
+      "name": "Conference on Empirical Methods in Natural Language Processing (EMNLP)",
+      "type": "conference",
+      "works": 13122,
+      "issn": null
+    },
+    {
+      "id": "S7407087688",
+      "name": "Conference on Empirical Methods in Natural Language Processing: System Demonstrations (EMNLP)",
+      "type": "conference",
+      "works": 479,
+      "issn": null
+    }
+  ],
+  "NAACL": [
+    {
+      "id": "S4363608774",
+      "name": "Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (NAACL-HLT)",
+      "type": "conference",
+      "works": 4255,
+      "issn": null
+    },
+    {
+      "id": "S4306420633",
+      "name": "North American Chapter of the Association for Computational Linguistics",
+      "type": "conference",
+      "works": 138,
+      "issn": null
+    },
+    {
+      "id": "S7407106664",
+      "name": "Conference of the North American Chapter of the Association for Computational Linguistics: Student Research Workshop (NAACL SRW)",
+      "type": "conference",
+      "works": 119,
+      "issn": null
+    }
+  ],
+  "AAAI": [
+    {
+      "id": "S4210191458",
+      "name": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "type": "conference",
+      "works": 25109,
+      "issn": "2159-5399"
+    },
+    {
+      "id": "S4387284112",
+      "name": "Proceedings of the AAAI Conference on Artificial Intelligence and Interactive Digital Entertainment",
+      "type": "journal",
+      "works": 1199,
+      "issn": "2326-909X"
+    },
+    {
+      "id": "S4363608784",
+      "name": "Proceedings of the AAAI Conference on Artificial Intelligence and Interactive Digital Entertainment",
+      "type": "conference",
+      "works": 0,
+      "issn": null
+    }
+  ],
+  "IJCAI": [
+    {
+      "id": "S4306419999",
+      "name": "International Joint Conference on Artificial Intelligence",
+      "type": "conference",
+      "works": 12021,
+      "issn": null
+    },
+    {
+      "id": "S7407096278",
+      "name": "International Joint Conference on Artificial Intelligence (JCAI)",
+      "type": "conference",
+      "works": 224,
+      "issn": null
+    },
+    {
+      "id": "S7407106771",
+      "name": "International Joint Conference on Robotics and Artificial Intelligence (JCRAI)",
+      "type": "conference",
+      "works": 79,
+      "issn": null
+    }
+  ]
+}
