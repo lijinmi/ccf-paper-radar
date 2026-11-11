@@ -1,0 +1,82 @@
+name: collect-cvf
+
+# CVF 一年只更新几次（会后放论文），所以不做定时，手动触发。
+# 在 Actions 页面点 "Run workflow"，填会议代号即可。
+on:
+  workflow_dispatch:
+    inputs:
+      conf:
+        description: "会议代号，如 CVPR2026 / ICCV2025 / WACV2027"
+        required: true
+        default: "CVPR2026"
+      limit:
+        description: "本次最多抓多少篇摘要（留空=全部）"
+        required: false
+        default: ""
+      workers:
+        description: "并发数（建议 6，别超过 8）"
+        required: false
+        default: "6"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: collect-cvf-${{ github.event.inputs.conf }}
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    # 4,000 篇摘要 ≈ 30 分钟；留足余量。单 job 硬上限是 6 小时。
+    timeout-minutes: 180
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      - name: 安装依赖
+        run: pip install -r requirements.txt
+
+      # 列表页 10 MB、CVF 限速；缓存住就不用每次重下
+      - name: 缓存列表页与索引
+        uses: actions/cache@v4
+        with:
+          path: |
+            data/cache/cvf
+            data/papers.db
+          key: cvf-${{ github.event.inputs.conf }}-${{ github.run_id }}
+          restore-keys: cvf-${{ github.event.inputs.conf }}-
+
+      - name: 抓取
+        run: |
+          ARGS="--conf ${{ github.event.inputs.conf }} --workers ${{ github.event.inputs.workers || 6 }}"
+          if [ -n "${{ github.event.inputs.limit }}" ]; then
+            ARGS="$ARGS --limit ${{ github.event.inputs.limit }}"
+          fi
+          python scripts/collect_cvf.py $ARGS
+
+      - name: 提交数据
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/papers
+          if git diff --cached --quiet; then
+            echo "数据无变化"
+          else
+            git commit -m "data: ${{ github.event.inputs.conf }} 抓取 $(date -u +%Y-%m-%d)"
+            git push
+          fi
+
+      - name: 汇总
+        if: always()
+        run: |
+          echo "### ${{ github.event.inputs.conf }}" >> $GITHUB_STEP_SUMMARY
+          for f in data/papers/*.jsonl; do
+            [ -e "$f" ] || continue
+            echo "- \`$f\`: $(wc -l < "$f") 篇" >> $GITHUB_STEP_SUMMARY
+          done
